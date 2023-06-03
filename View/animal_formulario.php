@@ -10,37 +10,41 @@
 </head>
 
 <body>
-    <form class="container my-5 w-50%" action="Index.php?controlador=usuario&accion=Guardar" method="post">
-        <input type="hidden" name="controlador" value="usuario">
-        <input type="hidden" name="accion" value="Guardar">
+    <form class="container my-5 w-50%" action="Index.php?controlador=animal&accion=Guardar" method="post">
 
         <div class="mb-3 mt-3">
             <input type="hidden" class="form-control" id="id" placeholder="Enter id"
-                value="<?php echo $usuario->id ?>" name="id">
+                value="<?php echo $animal->id ?>" name="id">
         </div>
 
         <div class="mb-3 mt-3">
             <label for="Nombre" class="form-label">Nombre:</label>
             <input type="text" class="form-control" id="Nombre" placeholder="Enter Nombre"
-                value="<?php echo $usuario->Nombre ?>" name="Nombre">
+                value="<?php echo $animal->Nombre ?>" name="Nombre">
         </div>
 
         <div class="mb-3 mt-3">
-            <label for="Apellido" class="form-label">Apellido:</label>
-            <input type="text" class="form-control" id="Apellido" placeholder="Enter Apellido"
-                value="<?php echo $usuario->Apellido ?>" name="Apellido">
+            <label for="Raza" class="form-label">Raza:</label>
+            <input type="text" class="form-control" id="Raza" placeholder="Enter Raza"
+                value="<?php echo $animal->Raza ?>" name="Raza">
         </div>
 
         <div class="mb-3 mt-3">
-            <label for="Telefono" class="form-label">Telefono:</label>
-            <input type="number" class="form-control" id="Telefono" placeholder="Enter Telefono"
-                value="<?php echo $usuario->Telefono ?>" name="Telefono">
+            <label for="Sexo" class="form-label">Sexo:</label>
+            <input type="text" class="form-control" id="Sexo" placeholder="Enter Sexo"
+                value="<?php echo $animal->Sexo ?>" name="Sexo">
+        </div>
+        
+        <div class="mb-3 mt-3">
+            <label for="Color" class="form-label">Color:</label>
+            <input type="text" class="form-control" id="Color" placeholder="Enter Color"
+                value="<?php echo $animal->Color ?>" name="Color">
         </div>
 
         <div class="mb-3 mt-3">
             <label for="Edad" class="form-label">Edad:</label>
             <input type="number" class="form-control" id="Edad" placeholder="Enter Edad"
-                value="<?php echo $usuario->Edad ?>" name="Edad">
+                value="<?php echo $animal->Edad ?>" name="Edad">
         </div>
         <button type="submit" class="btn btn-primary">Guardar</button>
     </form>

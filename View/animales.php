@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Usuarios</title>
+    <title>Animales</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
@@ -12,8 +12,8 @@
 
 <body>
     <div class="container my-5 d-column justify-content-center align-items-center">
-        <h1>Clientes</h1>
-        <a href="Index.php?controlador=usuario&accion=MostrarUsuario" class="btn btn-primary" title="New">
+        <h1>Animales</h1>
+        <a href="Index.php?controlador=animal&accion=MostrarAnimal" class="btn btn-primary" title="New">
             New
         </a>
         <a href="index.html" class="btn btn-secondary">Volver</a>
@@ -22,7 +22,7 @@
         <thead class="table-dark">
             <tr>
                 <?php require_once("core/constantes.php");
-                foreach (usuarioColumms as $value): ?>
+                foreach (animalColumms as $value): ?>
                     <th>
                         <?php echo $value; ?>
                     </th>
@@ -32,25 +32,28 @@
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($this->consultarTodo() as $usuario): ?>
+            <?php foreach ($animales as $animal): ?>
                 <tr>
                     <td>
-                        <?php echo $usuario->id ?>
+                        <?php echo $animal->id ?>
                     </td>
                     <td>
-                        <?php echo $usuario->Nombre ?>
+                        <?php echo $animal->Nombre ?>
                     </td>
                     <td>
-                        <?php echo $usuario->Apellido ?>
+                        <?php echo $animal->Raza ?>
                     </td>
                     <td>
-                        <?php echo $usuario->Telefono ?>
+                        <?php echo $animal->Sexo ?>
                     </td>
                     <td>
-                        <?php echo $usuario->Edad ?>
+                        <?php echo $animal->Color ?>
                     </td>
                     <td>
-                        <a href="Index.php?controlador=usuario&accion=MostrarUsuario&id=<?php echo $usuario->id ?>"
+                        <?php echo $animal->Edad ?>
+                    </td>
+                    <td>
+                        <a href="Index.php?controlador=animal&accion=MostrarAnimal&id=<?php echo $animal->id ?>"
                             class="btn btn-warning" title="Edit">
                             <i class="bi bi-pencil-square"></i>
                         </a>
@@ -59,7 +62,7 @@
 
                     </td>
                     <td>
-                        <a href="Index.php?controlador=usuario&accion=Eliminar&id=<?php echo $usuario->id ?>"
+                        <a href="Index.php?controlador=animal&accion=Eliminar&id=<?php echo $animal->id ?>"
                             onclick="return confirm('¿Seguro deseas eliminar?')" class="btn btn-danger" title="Delete">
                             <i class="bi bi-trash3"></i>
                         </a>

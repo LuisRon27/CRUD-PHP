@@ -12,6 +12,9 @@ class UsuarioControlador extends Usuario
 
     public function indexUsuario()
     {
+        $usuarios = $this->consultarTodo(); // Obtener los datos de los usuarios
+        
+        // Incluir la vista y pasar los datos como parámetro
         require_once("View/usuarios.php");
     }
 
@@ -19,10 +22,10 @@ class UsuarioControlador extends Usuario
     public function MostrarUsuario()
     {
 
-        
+
         if (isset($_REQUEST["id"])) {
             $usuario = $this->consultarID($_REQUEST["id"]);
-        }else{
+        } else {
             $usuario = $this;
         }
         require_once("View/usuario_formulario.php");
@@ -32,18 +35,21 @@ class UsuarioControlador extends Usuario
     public function Guardar()
     {
         $this->id = $_REQUEST["id"];
-        $this->name = $_REQUEST["Nombre"];
-        $this->apellido = $_REQUEST["Apellido"];
-        $this->telefono = $_REQUEST["Telefono"];
-        $this->edad = $_REQUEST["Edad"];
+        $this->Nombre = $_REQUEST["Nombre"];
+        $this->Apellido = $_REQUEST["Apellido"];
+        $this->Telefono = $_REQUEST["Telefono"];
+        $this->Edad = $_REQUEST["Edad"];
 
         $this->id > 0 ? $this->Actualizar() : $this->insertar();
-        header("Location:Index.php");
+        //header("Location:Index.php");
+        header("Location:Index.php?controlador=usuario");
+
     }
 
-    public function Eliminar(){
+    public function Eliminar()
+    {
         $this->Delete($_REQUEST["id"]);
-        header("Location:Index.php");
+        header("Location:Index.php?controlador=usuario");
     }
 }
 

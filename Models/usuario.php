@@ -5,10 +5,10 @@ class Usuario extends Crud
 {
     public function __construct(
         public int $id = 0,
-        public string $name = "",
-        public string $apellido = "",
-        public string $telefono = "",
-        public int $edad = 0
+        public string $Nombre = "",
+        public string $Apellido = "",
+        public string $Telefono = "",
+        public int $Edad = 0
     ) {
         parent::__construct("usuario");
     }
@@ -17,14 +17,14 @@ class Usuario extends Crud
     {
         $columns = "id, Nombre, Apellido, Telefono, Edad";
         $placeholders = "?, ?, ?, ?, ?";
-        $data = [$this->id, $this->name, $this->apellido, $this->telefono, $this->edad];
+        $data = [$this->id, $this->Nombre, $this->Apellido, $this->Telefono, $this->Edad];
         $this->Create($columns, $placeholders, $data);
     }
 
     public function Actualizar()
     {
-        $columns = "Nombre=?, Apellido=?, Telefono=?, Edad=?";
-        $data = [$this->name, $this->apellido, $this->telefono, $this->edad];
+        $columns = "Nombre=?, Apellido=?, Telefono=? , Edad=?";
+        $data = [ $this->Nombre, $this->Apellido, $this->Telefono, $this->Edad];
         $id = $this->id;
         $this->Modification($columns, $data, $id);
     }
